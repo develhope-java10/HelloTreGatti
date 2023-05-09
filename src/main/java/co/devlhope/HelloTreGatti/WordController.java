@@ -21,4 +21,5 @@ public class WordController {
 	public List<Word> getWords(){
 		return wordRepository.findAll();
 	}
+
 }
