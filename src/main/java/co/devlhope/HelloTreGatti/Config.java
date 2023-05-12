@@ -8,9 +8,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class Config implements WebMvcConfigurer {
     @Autowired
     RequestMethodStatisticsCollector requestMethodStatisticsCollector;
+    @Autowired
+    ResponseStatusStatisticsCollector responseStatusStatisticsCollector;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(requestMethodStatisticsCollector);
+        registry.addInterceptor(responseStatusStatisticsCollector);
     }
 }
