@@ -12,8 +12,14 @@ import java.util.Map;
 public class StatisticsController {
     @Autowired
     RequestMethodStatisticsCollector requestMethodStatisticsCollector;
-    @GetMapping("/count")
+    @Autowired
+    ResponseStatusStatisticsCollector responseStatusStatisticsCollector;
+    @GetMapping("/count-requests")
     public Map<String, Integer> countRequests(){
         return requestMethodStatisticsCollector.countRequests;
+    }
+    @GetMapping("/count-responses")
+    public Map<Integer, Integer> countResponses() {
+        return responseStatusStatisticsCollector.countStatus;
     }
 }
